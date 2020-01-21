@@ -1255,9 +1255,15 @@ are bound."
 
 ;;;###autoload
 (defun color-theme-fmnoise-dark ()
-  "Apply the fmnoise theme."
+  "Apply the fmnoise dark theme."
   (interactive)
   (color-theme-fmnoise 'dark))
+
+;;;###autoload
+(defun color-theme-fmnoise-black ()
+  "Apply the fmnoise black theme."
+  (interactive)
+  (color-theme-fmnoise 'black))
 
 (provide 'color-theme-fmnoise)
 
