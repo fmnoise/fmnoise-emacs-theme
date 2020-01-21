@@ -44,12 +44,12 @@ executed."
 
 
 (defmacro color-theme-fmnoise--with-colors (mode &rest body)
-  "Execute `BODY' in a scope with variables bound to the various tomorrow colors.
+  "Execute `BODY' in a scope with variables bound to the various fmnoise colors.
 
 Also sets background-mode to either 'light or 'dark, for use in
 setting `frame-background-mode'.
 
-`MODE' should be set to either 'day, 'night, 'eighties, 'blue or 'bright."
+`MODE' should be set to either 'dark or 'black'."
   `(let* ((colors (or (cdr (assoc ,mode color-theme-fmnoise-colors))
                       (error "no such theme flavor")))
           (background   (cdr (assoc 'background colors)))
@@ -1185,9 +1185,9 @@ are bound."
   (intern (format "fmnoise-%s" (symbol-name mode))))
 
 (defmacro color-theme-fmnoise--define-theme (mode)
-  "Define a theme for the tomorrow variant `MODE'."
+  "Define a theme for the fmnoise variant `MODE'."
   (let ((name (color-theme-fmnoise--theme-name mode))
-        (doc (format "A version of Chris Kempson's 'Tomorrow' theme (%s version)" mode)))
+        (doc (format "fmnoise theme (%s version)" mode)))
     `(progn
        (deftheme ,name ,doc)
        (put ',name 'theme-immediate t)
@@ -1228,7 +1228,7 @@ are bound."
        (provide-theme ',name))))
 
 (defun color-theme-fmnoise (mode)
-  "Apply the tomorrow variant theme."
+  "Apply fmnoise variant theme."
   (if (fboundp 'load-theme)
       (let ((name (color-theme-fmnoise--theme-name mode)))
         (if (boundp 'custom-enabled-themes)
